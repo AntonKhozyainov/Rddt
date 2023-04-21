@@ -1,6 +1,50 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
+buildscript {
+    ext {
+        //Tests
+        junit_version = '4.13.2'
+        test_junit_version = '1.1.5'
+        espresso_version = '3.5.1'
+
+        koin_version = '3.4.0'
+        coroutines_version = '1.6.4'
+        datastore_version = '1.0.0'
+
+//        core_ktx_version = "1.9.0"
+//        appcompat_version = "1.5.1"
+//        material_version = "1.7.0"
+//        constraintlayout_version = "2.1.4"
+
+//        activity_version = "1.6.1"
+//        fragment_version = "1.5.4"
+//        glide_version = "4.14.2"
+//        viewpager2_version = "1.0.0"
+//        dotsindicator_version = "4.3"
+//        recyclerview_version = "1.2.1"
+//        recyclerview_animators_version = "4.0.2"
+//        paging_version = "3.1.1"
+//        threetenabp_version = "1.4.1"
+//        lifecycle_version = "2.5.1"
+//        navigation_version = "2.5.3"
+//        gson_version = "2.9.1"
+//        retrofit_version = "2.9.0"
+//        okhttp3_version = "4.10.0"
+//        logging_interceptor_version = "4.9.3"
+//        swiperefreshlayout_version = "1.1.0"
+//        moshi_version = "1.14.0"
+//        appauth_version = "0.11.1"
+//        coroutines_version = "1.6.4"
+//
+//        permissions_version = "4.9.2"
+//        room_version = "2.4.3"
+//        viewbinding_version = "1.5.6"
+//        dagger_version = "2.44"
+    }
+}
+
 plugins {
-    id 'com.android.application' version '7.4.2' apply false
-    id 'com.android.library' version '7.4.2' apply false
+    id 'com.android.application' version '8.0.0' apply false
+    id 'com.android.library' version '8.0.0' apply false
     id 'org.jetbrains.kotlin.android' version '1.8.0' apply false
+    id 'org.jetbrains.kotlin.jvm' version '1.8.0' apply false
 }

@@ -1,0 +1,33 @@
+package ru.khozyainov.data.datasource
+
+import androidx.datastore.preferences.core.booleanPreferencesKey
+import androidx.datastore.preferences.core.edit
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.withContext
+import ru.khozyainov.data.RddtDataStore
+import ru.khozyainov.data.models.OnboardingEntity
+import java.lang.Exception
+
+class OnboardingLocalDataSourceImpl(
+    private val dataStore: RddtDataStore
+) : OnboardingLocalDataSource {
+
+    override fun readOnBoardingState(): Flow<OnboardingEntity> =
+        dataStore.value.data.map { preferences ->
+            OnboardingEntity(viewed = preferences[ONBOARDING_VIEWED] ?: false)
+        }
+
+    override suspend fun saveOnBoardingState(onboarding: OnboardingEntity) {
+        withContext(Dispatchers.IO) {
+            dataStore.value.edit { preferences ->
+                preferences[ONBOARDING_VIEWED] = onboarding.viewed
+            }
+        }
+    }
+
+    companion object {
+        private val ONBOARDING_VIEWED = booleanPreferencesKey("ONBOARDING_VIEWED")
+    }
+}
