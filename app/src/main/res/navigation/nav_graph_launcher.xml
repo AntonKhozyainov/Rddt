@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph_launcher"
+    app:startDestination="@id/launcherFragment">
+
+    <fragment
+        android:id="@+id/launcherFragment"
+        android:name="ru.khozyainov.rddt.ui.launcher.LauncherFragment"
+        android:label="LauncherFragment"
+        tools:layout="@layout/logo">
+        <action
+            android:id="@+id/action_launcherFragment_to_exceptionFragment"
+            app:destination="@id/exceptionFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/exceptionFragment"
+        android:name="ru.khozyainov.rddt.ui.exception.ExceptionFragment"
+        android:label="ExceptionFragment"
+        tools:layout="@layout/fragment_exception" />
+
+</navigation>

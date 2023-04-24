@@ -8,7 +8,6 @@ import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.withContext
 import ru.khozyainov.data.RddtDataStore
 import ru.khozyainov.data.models.OnboardingEntity
-import java.lang.Exception
 
 class OnboardingLocalDataSourceImpl(
     private val dataStore: RddtDataStore

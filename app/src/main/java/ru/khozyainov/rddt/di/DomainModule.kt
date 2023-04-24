@@ -3,6 +3,7 @@ package ru.khozyainov.rddt.di
 import org.koin.dsl.module
 import ru.khozyainov.domain.usecase.login.GetLoginStateUseCase
 import ru.khozyainov.domain.usecase.onboarding.GetOnboardingStateUseCase
+import ru.khozyainov.domain.usecase.onboarding.OnboardingViewedUseCase
 
 val domainModule = module {
 
@@ -12,5 +13,9 @@ val domainModule = module {
 
     factory {
         GetLoginStateUseCase(authRepository = get())
+    }
+
+    factory {
+        OnboardingViewedUseCase(onboardingRepository = get())
     }
 }

@@ -8,6 +8,7 @@ import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.withContext
 import ru.khozyainov.data.RddtDataStore
 import ru.khozyainov.data.models.TokenEntity
+import java.lang.Exception
 
 class AuthLocalDataSourceImpl(
     private val dataStore: RddtDataStore
