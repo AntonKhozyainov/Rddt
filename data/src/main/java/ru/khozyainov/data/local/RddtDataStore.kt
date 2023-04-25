@@ -1,4 +1,4 @@
-package ru.khozyainov.data
+package ru.khozyainov.data.local
 
 import android.app.Application
 import androidx.datastore.core.DataStore

@@ -11,8 +11,11 @@ buildscript {
         coroutines_version = '1.6.4'
         datastore_version = '1.0.0'
         binding_version = '1.5.6'
-        navigation_version = "2.5.3"
-        appauth_version = "0.11.1"
+        navigation_version = '2.5.3'
+        appauth_version = '0.11.1'
+        okhttp_version = '5.0.0-alpha.10'
+        moshi_version = '1.14.0'
+        retrofit_version = '2.9.0'
 
 //        core_ktx_version = "1.9.0"
 //        appcompat_version = "1.5.1"

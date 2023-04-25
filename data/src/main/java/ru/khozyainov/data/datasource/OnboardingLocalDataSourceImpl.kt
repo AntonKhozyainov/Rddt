@@ -6,7 +6,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.withContext
-import ru.khozyainov.data.RddtDataStore
+import ru.khozyainov.data.local.RddtDataStore
 import ru.khozyainov.data.models.OnboardingEntity
 
 class OnboardingLocalDataSourceImpl(

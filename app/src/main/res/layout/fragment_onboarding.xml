@@ -16,6 +16,7 @@
         android:layout_gravity="bottom|center"
         android:layout_margin="30dp"
         app:dotsColor="?attr/colorPrimary"
+        app:dotsStrokeColor="?attr/colorSecondary"
         app:dotsCornerRadius="12dp"
         app:dotsSize="9dp"
         app:dotsSpacing="16dp"

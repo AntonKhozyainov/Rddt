@@ -18,14 +18,10 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
-        def localProperties = new Properties()
-        if (project.rootProject.file('local.properties').canRead()) {
-            localProperties.load(project.rootProject.file("local.properties").newDataInputStream())
-        }
 
-        buildConfigField "String", "CLIENT_ID", localProperties['clienId']
-        buildConfigField "String", "CLIENT_SECRET", localProperties['clientSecret']
-        buildConfigField "String", "REDIRECT_URI", localProperties['redirectUri']
+        manifestPlaceholders = [
+                appAuthRedirectScheme: "ru.khozyainov.rddt"
+        ]
     }
 
     buildTypes {

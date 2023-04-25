@@ -4,20 +4,22 @@
 <!--    exception fragment-->
     <string name="error_title">Something went wrong…</string>
     <string name="retry">Retry</string>
+    <string name="error_image">Error image</string>
 
 <!--    onboarding-->
     <string name="title_onboarding_1">Welcome to Rddt</string>
     <string name="description_onboarding_1">Communities for all kinds of interests are gathered here.</string>
-
     <string name="title_onboarding_2">SubRddt</string>
     <string name="description_onboarding_2">You can find new subs by interest and see the subs to which you are subscribed.</string>
-
     <string name="title_onboarding_3">Share and save</string>
     <string name="description_onboarding_3">The Favorites tab stores bookmarks with comments and subs. In your profile you will find information about yourself.</string>
     <string name="onboarding_done">Done</string>
     <string name="onboarding_next_page">Next page</string>
     <string name="onboarding_previous_page">Previous page</string>
-    <string name="error_image">Error image</string>
+
+<!--    login-->
+    <string name="sing_in_with_reddit">Sing in with Reddit</string>
+    <string name="sing_in">Sing in</string>
 
 
 </resources>

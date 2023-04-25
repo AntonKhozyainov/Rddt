@@ -40,8 +40,6 @@
             </intent-filter>
         </activity>
 
-        <activity
-            android:name=".ui.onboarding.OnboardingActivity"/>
 
         <meta-data
             android:name="preloaded_fonts"

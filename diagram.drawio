@@ -1,6 +1,6 @@
-<mxfile host="Electron" modified="2023-04-24T15:42:33.991Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/21.2.1 Chrome/112.0.5615.87 Electron/24.1.2 Safari/537.36" etag="_ebhCJXqUEQ5PoOHBVac" version="21.2.1" type="device">
+<mxfile host="Electron" modified="2023-04-25T17:24:08.485Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/21.2.1 Chrome/112.0.5615.87 Electron/24.1.2 Safari/537.36" etag="i6i7-m8o6AjjhNlj2F9s" version="21.2.1" type="device">
   <diagram name="Страница 1" id="V0qLCYSgytZh2rKlNXdx">
-    <mxGraphModel dx="1837" dy="1837" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="2270" dy="2123" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -47,7 +47,7 @@
         <mxCell id="SQ890dfxBt3CAPnLPfhD-6" value="data" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="-220" y="-525" width="60" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="SQ890dfxBt3CAPnLPfhD-38" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;strokeColor=#000000;" parent="1" source="SQ890dfxBt3CAPnLPfhD-8" target="SQ890dfxBt3CAPnLPfhD-37" edge="1">
+        <mxCell id="dSTpjDRhS94K8XsnRCRT-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="SQ890dfxBt3CAPnLPfhD-8" target="dSTpjDRhS94K8XsnRCRT-3">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="SQ890dfxBt3CAPnLPfhD-8" value="LauncherViewModel" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
@@ -65,7 +65,7 @@
         <mxCell id="SQ890dfxBt3CAPnLPfhD-11" value="GetLoginStateUseCase" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="-5" y="310" width="170" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="SQ890dfxBt3CAPnLPfhD-40" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;strokeColor=#000000;" parent="1" source="SQ890dfxBt3CAPnLPfhD-15" target="SQ890dfxBt3CAPnLPfhD-39" edge="1">
+        <mxCell id="dSTpjDRhS94K8XsnRCRT-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="SQ890dfxBt3CAPnLPfhD-15" target="dSTpjDRhS94K8XsnRCRT-2">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="SQ890dfxBt3CAPnLPfhD-15" value="OnboardingViewModel" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
@@ -77,22 +77,8 @@
         <mxCell id="SQ890dfxBt3CAPnLPfhD-16" value="OnboardingViewedUseCase" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="195" y="310" width="180" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="SQ890dfxBt3CAPnLPfhD-22" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="SQ890dfxBt3CAPnLPfhD-18" target="SQ890dfxBt3CAPnLPfhD-19" edge="1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="SQ890dfxBt3CAPnLPfhD-124" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeColor=#000000;" parent="1" source="SQ890dfxBt3CAPnLPfhD-18" edge="1">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="470" y="845" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="SQ890dfxBt3CAPnLPfhD-18" value="LoginActivity" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="410" y="690" width="120" height="75" as="geometry" />
-        </mxCell>
         <mxCell id="SQ890dfxBt3CAPnLPfhD-19" value="LoginFragment" style="whiteSpace=wrap;html=1;aspect=fixed;" parent="1" vertex="1">
           <mxGeometry x="390" y="800" width="160" height="160" as="geometry" />
-        </mxCell>
-        <mxCell id="SQ890dfxBt3CAPnLPfhD-21" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;strokeColor=#000000;" parent="1" source="SQ890dfxBt3CAPnLPfhD-41" target="SQ890dfxBt3CAPnLPfhD-18" edge="1">
-          <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="SQ890dfxBt3CAPnLPfhD-20" value="GetTokenByRequestUseCase" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="320" y="240" width="180" height="80" as="geometry" />
@@ -149,12 +135,6 @@
         <mxCell id="SQ890dfxBt3CAPnLPfhD-35" value="GetCommentsListUseCase" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="1710" y="310" width="170" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="SQ890dfxBt3CAPnLPfhD-37" value="LauncherActivity" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="-95" y="690" width="120" height="75" as="geometry" />
-        </mxCell>
-        <mxCell id="SQ890dfxBt3CAPnLPfhD-39" value="OnboardingActivity" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="225" y="690" width="120" height="75" as="geometry" />
-        </mxCell>
         <mxCell id="SQ890dfxBt3CAPnLPfhD-42" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;strokeColor=#000000;" parent="1" source="SQ890dfxBt3CAPnLPfhD-20" target="SQ890dfxBt3CAPnLPfhD-41" edge="1">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="470" y="390" as="sourcePoint" />
@@ -165,6 +145,9 @@
               <mxPoint x="440" y="480" />
             </Array>
           </mxGeometry>
+        </mxCell>
+        <mxCell id="dSTpjDRhS94K8XsnRCRT-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="SQ890dfxBt3CAPnLPfhD-41" target="SQ890dfxBt3CAPnLPfhD-19">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="SQ890dfxBt3CAPnLPfhD-41" value="LoginViewModel" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="410" y="585" width="120" height="75" as="geometry" />
@@ -348,7 +331,13 @@
           <mxGeometry x="150" y="-30" width="180" height="90" as="geometry" />
         </mxCell>
         <mxCell id="SQ890dfxBt3CAPnLPfhD-117" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeColor=#3333FF;" parent="1" source="SQ890dfxBt3CAPnLPfhD-115" target="SQ890dfxBt3CAPnLPfhD-20" edge="1">
-          <mxGeometry relative="1" as="geometry" />
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="440" y="60" />
+              <mxPoint x="440" y="180" />
+              <mxPoint x="410" y="180" />
+            </Array>
+          </mxGeometry>
         </mxCell>
         <mxCell id="SQ890dfxBt3CAPnLPfhD-118" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=1;exitDx=0;exitDy=0;strokeColor=#3333FF;" parent="1" source="SQ890dfxBt3CAPnLPfhD-115" target="SQ890dfxBt3CAPnLPfhD-109" edge="1">
           <mxGeometry relative="1" as="geometry">
@@ -358,8 +347,14 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="V5DGMhmqkKNq_22LO0PI-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.75;exitY=1;exitDx=0;exitDy=0;strokeColor=#0800FF;" edge="1" parent="1" source="SQ890dfxBt3CAPnLPfhD-115" target="V5DGMhmqkKNq_22LO0PI-1">
-          <mxGeometry relative="1" as="geometry" />
+        <mxCell id="V5DGMhmqkKNq_22LO0PI-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.75;exitY=1;exitDx=0;exitDy=0;strokeColor=#0800FF;" parent="1" source="SQ890dfxBt3CAPnLPfhD-115" target="V5DGMhmqkKNq_22LO0PI-1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="510" y="60" />
+              <mxPoint x="510" y="180" />
+              <mxPoint x="530" y="180" />
+            </Array>
+          </mxGeometry>
         </mxCell>
         <mxCell id="SQ890dfxBt3CAPnLPfhD-115" value="AuthRepository" style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#3333FF;" parent="1" vertex="1">
           <mxGeometry x="380" y="-30" width="180" height="90" as="geometry" />
@@ -626,7 +621,7 @@
         <mxCell id="SQ890dfxBt3CAPnLPfhD-211" value="MessageRemoteDataStore" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="2386" y="-585" width="159" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="V5DGMhmqkKNq_22LO0PI-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.75;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="V5DGMhmqkKNq_22LO0PI-1" target="SQ890dfxBt3CAPnLPfhD-41">
+        <mxCell id="V5DGMhmqkKNq_22LO0PI-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.75;entryY=0;entryDx=0;entryDy=0;" parent="1" source="V5DGMhmqkKNq_22LO0PI-1" target="SQ890dfxBt3CAPnLPfhD-41" edge="1">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
               <mxPoint x="530" y="480" />
@@ -634,8 +629,17 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="V5DGMhmqkKNq_22LO0PI-1" value="GetLoginIntentUseCase" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="V5DGMhmqkKNq_22LO0PI-1" value="GetLoginIntentUseCase" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="460" y="340" width="140" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="dSTpjDRhS94K8XsnRCRT-2" value="OnboardingFragment" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="205" y="800" width="160" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="dSTpjDRhS94K8XsnRCRT-3" value="LaunchFragment" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="-115" y="800" width="160" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="SQ890dfxBt3CAPnLPfhD-37" value="LauncherActivity" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="-120" y="690" width="670" height="75" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>

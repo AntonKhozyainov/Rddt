@@ -51,7 +51,7 @@ class LauncherViewModel(
         return if (onboardingViewed != null && loginCompleted != null) {
             when {
                 onboardingViewed && loginCompleted -> LauncherState.NavigateToMainActivityAction
-                onboardingViewed && !loginCompleted -> LauncherState.NavigateToLoginActivityAction
+                onboardingViewed && !loginCompleted -> LauncherState.NavigateToLoginAction
                 else -> LauncherState.NavigateToOnboardingAction
             }
         } else {
