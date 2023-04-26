@@ -20,11 +20,7 @@ class ExceptionFragment : ViewBindingFragment<FragmentExceptionBinding>(Fragment
             findNavController().navigate(
                 args.sourceFragmentId,
                 null,
-                navOptions {
-                    popUpTo(R.id.exceptionFragment) {
-                        inclusive = true
-                    }
-                }
+                navOptions { popUpTo(R.id.exceptionFragment) { inclusive = true } }
             )
         }
     }

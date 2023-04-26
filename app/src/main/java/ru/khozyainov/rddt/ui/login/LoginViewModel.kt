@@ -9,38 +9,41 @@ import kotlinx.coroutines.launch
 import net.openid.appauth.TokenRequest
 import ru.khozyainov.domain.usecase.login.GetLoginIntentUseCase
 import ru.khozyainov.domain.usecase.login.GetTokenByRequestUseCase
-import java.lang.Exception
 
 class LoginViewModel(
     private val getLoginIntentUseCase: GetLoginIntentUseCase,
     private val getTokenByRequestUseCase: GetTokenByRequestUseCase
-): ViewModel() {
+) : ViewModel() {
 
     private val uiMutableState = MutableStateFlow<LoginState>(LoginState.Default)
     val uiState: StateFlow<LoginState> = uiMutableState
 
-    private val errorHandler = CoroutineExceptionHandler{ _, throwable ->
+    private val errorHandler = CoroutineExceptionHandler { _, throwable ->
         uiMutableState.value = LoginState.Error(exception = throwable)
     }
 
-    fun getLoginPageIntent(){
-        uiMutableState.value = LoginState.Loading
+    fun getLoginPageIntent() {
+        setLoadingState()
         viewModelScope.launch(errorHandler) {
             val intent = getLoginIntentUseCase()
             uiMutableState.value = LoginState.Success(intent = intent)
         }
     }
 
-    fun getTokenByRequest(tokenRequest: TokenRequest){
-        uiMutableState.value = LoginState.Loading
+    fun getTokenByRequest(tokenRequest: TokenRequest) {
+        setLoadingState()
         viewModelScope.launch(errorHandler) {
-            if (getTokenByRequestUseCase(tokenRequest)){
+            if (getTokenByRequestUseCase(tokenRequest)) {
                 uiMutableState.value = LoginState.NavigateToLaunchAction
             }
         }
     }
 
-    fun onAuthFailed(exception: Exception){
+    fun setLoadingState() {
+        uiMutableState.value = LoginState.Loading
+    }
+
+    fun onAuthFailed(exception: Exception) {
         uiMutableState.value = LoginState.Error(exception = exception)
     }
 

@@ -21,7 +21,6 @@ android {
         }
 
         buildConfigField "String", "CLIENT_ID", localProperties['clienId']
-//        buildConfigField "String", "CLIENT_SECRET", localProperties['clientSecret']
         buildConfigField "String", "REDIRECT_URI", localProperties['redirectUri']
     }
 

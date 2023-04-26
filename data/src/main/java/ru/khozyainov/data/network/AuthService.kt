@@ -50,7 +50,7 @@ class AuthService(
         const val TOKEN_URL = "https://www.reddit.com/api/v1/access_token"
         const val TOKEN_REVOKE_URL = "https://www.reddit.com/api/v1/revoke_token"
         const val INSTALLED_CLIENT = "https://oauth.reddit.com/grants/installed_client"
-        const val REDIRECT_URI = "ru.skillbox.humblr://reddit.com/callback"
+        const val REDIRECT_URI = BuildConfig.REDIRECT_URI
         const val RESPONSE_TYPE = ResponseTypeValues.CODE
         const val CLIENT_ID = BuildConfig.CLIENT_ID
         const val OAUTH_SCOPE =

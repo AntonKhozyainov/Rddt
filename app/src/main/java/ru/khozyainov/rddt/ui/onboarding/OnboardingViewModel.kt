@@ -11,12 +11,12 @@ import ru.khozyainov.domain.usecase.onboarding.OnboardingViewedUseCase
 
 class OnboardingViewModel(
     private val onboardingViewedUseCase: OnboardingViewedUseCase
-): ViewModel() {
+) : ViewModel() {
 
     private val iuMutableState = MutableStateFlow<OnboardingState>(OnboardingState.Default)
     val uiState: StateFlow<OnboardingState> = iuMutableState
 
-    private val errorHandler = CoroutineExceptionHandler{ _, throwable ->
+    private val errorHandler = CoroutineExceptionHandler { _, throwable ->
         iuMutableState.value = OnboardingState.Error(exception = throwable)
     }
 

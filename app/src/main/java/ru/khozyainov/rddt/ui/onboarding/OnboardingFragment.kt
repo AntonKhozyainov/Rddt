@@ -13,7 +13,8 @@ import ru.khozyainov.rddt.ui.exception.ExceptionHandler
 import ru.khozyainov.rddt.utils.ViewBindingFragment
 import ru.khozyainov.rddt.utils.launchAndCollectLatest
 
-class OnboardingFragment: ViewBindingFragment<FragmentOnboardingBinding>(FragmentOnboardingBinding::inflate),
+class OnboardingFragment :
+    ViewBindingFragment<FragmentOnboardingBinding>(FragmentOnboardingBinding::inflate),
     ExceptionHandler {
 
     private val viewModel by viewModel<OnboardingViewModel>()
@@ -36,30 +37,29 @@ class OnboardingFragment: ViewBindingFragment<FragmentOnboardingBinding>(Fragmen
         )
     }
 
-    private fun observeState(){
-        viewModel.uiState.launchAndCollectLatest(viewLifecycleOwner){ uiState ->
-            when(uiState){
+    private fun observeState() {
+        viewModel.uiState.launchAndCollectLatest(viewLifecycleOwner) { uiState ->
+            when (uiState) {
                 is OnboardingState.Success -> {
-//                    val intent = Intent(requireContext(), LauncherActivity::class.java)
-//                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
-//                    startActivity(intent)
                     findNavController().navigate(
                         OnboardingFragmentDirections.actionOnboardingFragmentToLauncherFragment()
                     )
                 }
+
                 is OnboardingState.Error -> {
                     navToExceptionFragment()
                     //TODO action.exception ???
                 }
+
                 is OnboardingState.Default -> {}
             }
         }
     }
 
-    private fun setAdapter(){
-        with(binding){
+    private fun setAdapter() {
+        with(binding) {
 
-            viewPagerOnboarding.adapter = OnboardingAdapter(object : OnboardingAdapter.Listener{
+            viewPagerOnboarding.adapter = OnboardingAdapter(object : OnboardingAdapter.Listener {
                 override fun showNextPage() {
                     viewPagerOnboarding.setCurrentItem(viewPagerOnboarding.currentItem + 1, true)
                 }

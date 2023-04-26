@@ -2,8 +2,10 @@ package ru.khozyainov.rddt.ui.login
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.TypedValue
 import android.view.View
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.content.ContextCompat
 import androidx.core.os.bundleOf
 import androidx.core.view.isVisible
 import androidx.navigation.fragment.findNavController
@@ -43,35 +45,50 @@ class LoginFragment : ViewBindingFragment<FragmentLoginBinding>(FragmentLoginBin
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        changeColorStatusBar(
+            attrColor = com.google.android.material.R.attr.colorPrimary
+        )
         observeState()
         binding.loginButton.setOnClickListener {
             viewModel.getLoginPageIntent()
         }
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        changeColorStatusBar(
+            attrColor = com.google.android.material.R.attr.colorSurface
+        )
+    }
+
     private fun observeState() {
-        viewModel.uiState.launchAndCollectLatest(viewLifecycleOwner){ uiState ->
-            when(uiState){
+        viewModel.uiState.launchAndCollectLatest(viewLifecycleOwner) { uiState ->
+            when (uiState) {
                 is LoginState.Success -> {
                     uiState.intent?.let {
+                        viewModel.setLoadingState()
                         getAuthResponse.launch(it)
                     }
                 }
+
                 is LoginState.Error -> {
                     navToExceptionFragment()
-                    //TODO action.exception ???
+                    //todo action.exception ???
                 }
+
                 is LoginState.NavigateToLaunchAction -> {
                     findNavController().navigate(
                         LoginFragmentDirections.actionLoginFragmentToLauncherFragment()
                     )
                 }
+
                 is LoginState.Loading -> {
-                    binding.loginButton.isVisible = false
+                    binding.loginButton.isEnabled = false
                     binding.loginProgressBar.isVisible = true
                 }
+
                 is LoginState.Default -> {
-                    binding.loginButton.isVisible = true
+                    binding.loginButton.isEnabled = true
                     binding.loginProgressBar.isVisible = false
                 }
             }
@@ -87,5 +104,16 @@ class LoginFragment : ViewBindingFragment<FragmentLoginBinding>(FragmentLoginBin
             tokenExchangeRequest != null ->
                 viewModel.getTokenByRequest(tokenExchangeRequest)
         }
+    }
+
+    private fun changeColorStatusBar(attrColor: Int) {
+        val typedValue = TypedValue()
+        requireContext().theme.resolveAttribute(
+            attrColor, typedValue, true
+        )
+        requireActivity().window.statusBarColor = ContextCompat.getColor(
+            requireContext(),
+            typedValue.resourceId
+        )
     }
 }

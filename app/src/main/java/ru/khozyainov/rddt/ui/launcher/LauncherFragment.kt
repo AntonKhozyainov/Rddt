@@ -1,7 +1,7 @@
 package ru.khozyainov.rddt.ui.launcher
 
+import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.core.os.bundleOf
 import androidx.navigation.fragment.findNavController
@@ -9,6 +9,7 @@ import androidx.navigation.navOptions
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import ru.khozyainov.rddt.R
 import ru.khozyainov.rddt.databinding.LogoBinding
+import ru.khozyainov.rddt.ui.MainActivity
 import ru.khozyainov.rddt.ui.exception.ExceptionFragment.Companion.SOURCE_FRAGMENT_ID_KEY
 import ru.khozyainov.rddt.ui.exception.ExceptionHandler
 import ru.khozyainov.rddt.utils.ViewBindingFragment
@@ -56,9 +57,9 @@ class LauncherFragment : ViewBindingFragment<LogoBinding>(LogoBinding::inflate),
             }
 
             is LauncherState.NavigateToMainActivityAction -> {
-//                val intent = Intent(requireContext(), OnboardingActivity::class.java)
-//                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
-//                startActivity(intent)
+                val intent = Intent(requireContext(), MainActivity::class.java)
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
+                startActivity(intent)
             }
 
             is LauncherState.Error -> {
@@ -68,6 +69,5 @@ class LauncherFragment : ViewBindingFragment<LogoBinding>(LogoBinding::inflate),
             is LauncherState.Loading -> {}
         }
     }
-
 
 }

@@ -6,6 +6,7 @@ sealed class LoginState {
     data class Success(
         val intent: Intent? = null
     ) : LoginState()
+
     object NavigateToLaunchAction : LoginState()
     object Default : LoginState()
     object Loading : LoginState()
