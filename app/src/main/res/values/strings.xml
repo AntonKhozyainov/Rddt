@@ -21,5 +21,10 @@
     <string name="sing_in_with_reddit">Sing in with Reddit</string>
     <string name="sing_in">Sing in</string>
 
+<!--    bottom nav menu-->
+    <string name="feed">Feed</string>
+    <string name="chat">Chat</string>
+    <string name="profile">Profile</string>
+
 
 </resources>

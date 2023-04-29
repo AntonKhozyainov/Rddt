@@ -11,8 +11,8 @@ interface ExceptionHandler {
     * function body example:
     *
     * findNavController().navigate(
-    *        [current fragment id],
-    *        bundleOf(SOURCE_FRAGMENT_ID_KEY to R.id.launcherFragment),
+    *        R.id.exceptionFragment,
+    *        bundleOf(SOURCE_FRAGMENT_ID_KEY to [current fragment id]),
     *        navOptions {
     *            popUpTo([current fragment id]) {
     *                inclusive = true
