@@ -22,6 +22,10 @@ class LoginViewModel(
         uiMutableState.value = LoginState.Error(exception = throwable)
     }
 
+    fun refreshState() {
+        uiMutableState.value = LoginState.Default
+    }
+
     fun getLoginPageIntent() {
         setLoadingState()
         viewModelScope.launch(errorHandler) {

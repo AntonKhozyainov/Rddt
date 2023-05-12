@@ -20,6 +20,10 @@ class OnboardingViewModel(
         iuMutableState.value = OnboardingState.Error(exception = throwable)
     }
 
+    fun refreshState() {
+        iuMutableState.value = OnboardingState.Default
+    }
+
     fun onboardingCompleted() = viewModelScope.launch(errorHandler) {
         onboardingViewedUseCase(onboarding = Onboarding(viewed = true))
         iuMutableState.value = OnboardingState.Success

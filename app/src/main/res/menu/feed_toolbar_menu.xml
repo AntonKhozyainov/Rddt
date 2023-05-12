@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/toolbarSearch"
+        android:icon="@drawable/search"
+        android:iconTint="?attr/colorOnBackground"
+        android:title="@string/search"
+        app:actionViewClass="androidx.appcompat.widget.SearchView"
+        app:iconTint="?attr/colorOnBackground"
+        app:showAsAction="ifRoom|collapseActionView" />
+
+    <item
+        android:id="@+id/toolbarSortMenu"
+        android:icon="@drawable/sort_menu"
+        android:iconTint="?attr/colorOnBackground"
+        android:title=""
+        app:iconTint="?attr/colorOnBackground"
+        app:showAsAction="always">
+
+        <menu>
+            <item
+                android:id="@+id/feedSortHot"
+                android:icon="@drawable/sort_hot"
+                android:iconTint="?attr/colorOnBackground"
+                android:title="@string/sort_hot"
+                app:iconTint="?attr/colorOnBackground"
+                app:showAsAction="never" />
+
+            <item
+                android:id="@+id/feedSortNew"
+                android:icon="@drawable/sort_new"
+                android:iconTint="?attr/colorOnBackground"
+                android:title="@string/sort_new"
+                app:iconTint="?attr/colorOnBackground"
+                app:showAsAction="never" />
+
+            <item
+                android:id="@+id/feedSortTop"
+                android:icon="@drawable/sort_top"
+                android:iconTint="?attr/colorOnBackground"
+                android:title="@string/sort_top"
+                app:iconTint="?attr/colorOnBackground"
+                app:showAsAction="never" />
+
+            <item
+                android:id="@+id/feedSortControversial"
+                android:icon="@drawable/sort_controversial"
+                android:iconTint="?attr/colorOnBackground"
+                android:title="@string/sort_controversial"
+                app:iconTint="?attr/colorOnBackground"
+                app:showAsAction="never" />
+
+            <item
+                android:id="@+id/feedSortRising"
+                android:icon="@drawable/sort_rising"
+                android:iconTint="?attr/colorOnBackground"
+                android:title="@string/sort_rising"
+                app:iconTint="?attr/colorOnBackground"
+                app:showAsAction="never" />
+
+        </menu>
+    </item>
+</menu>

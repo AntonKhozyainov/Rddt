@@ -3,25 +3,19 @@ package ru.khozyainov.rddt.ui.login
 import android.content.Intent
 import android.os.Bundle
 import android.util.TypedValue
-import android.view.View
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
-import androidx.core.os.bundleOf
 import androidx.core.view.isVisible
-import androidx.navigation.fragment.findNavController
-import androidx.navigation.navOptions
 import net.openid.appauth.AuthorizationException
 import net.openid.appauth.AuthorizationResponse
 import org.koin.androidx.viewmodel.ext.android.viewModel
-import ru.khozyainov.rddt.R
-import ru.khozyainov.rddt.databinding.FragmentLoginBinding
-import ru.khozyainov.rddt.ui.exception.ExceptionFragment.Companion.SOURCE_FRAGMENT_ID_KEY
-import ru.khozyainov.rddt.ui.exception.ExceptionHandler
-import ru.khozyainov.rddt.utils.ViewBindingFragment
-import ru.khozyainov.rddt.utils.launchAndCollectLatest
+import ru.khozyainov.rddt.databinding.ActivityLoginBinding
+import ru.khozyainov.rddt.ui.launcher.LauncherActivity
+import ru.khozyainov.rddt.utils.ViewBindingActivity
+import ru.khozyainov.rddt.utils.getIntentNewClearTask
+import ru.khozyainov.rddt.utils.launchAndCollectLatestForActivity
 
-class LoginFragment : ViewBindingFragment<FragmentLoginBinding>(FragmentLoginBinding::inflate),
-    ExceptionHandler {
+class LoginActivity : ViewBindingActivity<ActivityLoginBinding>(ActivityLoginBinding::inflate) {
 
     private val viewModel: LoginViewModel by viewModel()
 
@@ -31,38 +25,29 @@ class LoginFragment : ViewBindingFragment<FragmentLoginBinding>(FragmentLoginBin
             handleAuthResponseIntent(dataIntent)
         }
 
-    override fun navToExceptionFragment() {
-        findNavController().navigate(
-            R.id.loginFragment,
-            bundleOf(SOURCE_FRAGMENT_ID_KEY to R.id.launcherFragment),
-            navOptions {
-                popUpTo(R.id.loginFragment) {
-                    inclusive = true
-                }
-            }
-        )
+    override fun refreshState() {
+        dismissExceptionDialogFragment()
+        viewModel.refreshState()
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        changeColorStatusBar(
-            attrColor = com.google.android.material.R.attr.colorPrimary
-        )
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        changeColorStatusBar(attrColor = com.google.android.material.R.attr.colorPrimary)
+
         observeState()
         binding.loginButton.setOnClickListener {
             viewModel.getLoginPageIntent()
         }
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        changeColorStatusBar(
-            attrColor = com.google.android.material.R.attr.colorSurface
-        )
+    override fun onDestroy() {
+        changeColorStatusBar(attrColor = com.google.android.material.R.attr.colorSurface)
+        super.onDestroy()
     }
 
     private fun observeState() {
-        viewModel.uiState.launchAndCollectLatest(viewLifecycleOwner) { uiState ->
+        viewModel.uiState.launchAndCollectLatestForActivity(lifecycle) { uiState ->
             when (uiState) {
                 is LoginState.Success -> {
                     uiState.intent?.let {
@@ -72,14 +57,11 @@ class LoginFragment : ViewBindingFragment<FragmentLoginBinding>(FragmentLoginBin
                 }
 
                 is LoginState.Error -> {
-                    navToExceptionFragment()
-                    //todo action.exception ???
+                    showExceptionDialogFragment()
                 }
 
                 is LoginState.NavigateToLaunchAction -> {
-                    findNavController().navigate(
-                        LoginFragmentDirections.actionLoginFragmentToLauncherFragment()
-                    )
+                    startActivity(this@LoginActivity.getIntentNewClearTask(LauncherActivity::class.java))
                 }
 
                 is LoginState.Loading -> {
@@ -108,11 +90,11 @@ class LoginFragment : ViewBindingFragment<FragmentLoginBinding>(FragmentLoginBin
 
     private fun changeColorStatusBar(attrColor: Int) {
         val typedValue = TypedValue()
-        requireContext().theme.resolveAttribute(
+        this.theme.resolveAttribute(
             attrColor, typedValue, true
         )
-        requireActivity().window.statusBarColor = ContextCompat.getColor(
-            requireContext(),
+        this.window.statusBarColor = ContextCompat.getColor(
+            this,
             typedValue.resourceId
         )
     }

@@ -40,6 +40,14 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:name=".ui.onboarding.OnboardingActivity"/>
+
+        <activity
+            android:name=".ui.login.LoginActivity"/>
+
+        <activity
+            android:name=".ui.exception.ExceptionActivity"/>
 
         <meta-data
             android:name="preloaded_fonts"

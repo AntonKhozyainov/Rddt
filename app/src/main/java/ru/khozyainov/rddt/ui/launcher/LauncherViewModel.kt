@@ -15,17 +15,21 @@ import ru.khozyainov.domain.usecase.login.GetLoginStateUseCase
 import ru.khozyainov.domain.usecase.onboarding.GetOnboardingStateUseCase
 
 class LauncherViewModel(
-    getOnboardingStateUseCase: GetOnboardingStateUseCase,
-    getLoginStateUseCase: GetLoginStateUseCase
+    private val getOnboardingStateUseCase: GetOnboardingStateUseCase,
+    private val getLoginStateUseCase: GetLoginStateUseCase
 ) : ViewModel() {
 
     private val uiMutableState =
-        MutableStateFlow<LauncherState>(LauncherState.Loading)
+        MutableStateFlow<LauncherState>(LauncherState.Default)
     val uiState: StateFlow<LauncherState> = uiMutableState
 
     private var job: Job? = null
 
     init {
+        refresh()
+    }
+
+    fun refresh(){
         job = combine(
             getOnboardingStateUseCase(),
             getLoginStateUseCase()
@@ -41,7 +45,8 @@ class LauncherViewModel(
             .flowOn(Dispatchers.IO)
             .catch { exception ->
                 uiMutableState.value = LauncherState.Error(exception)
-            }.launchIn(viewModelScope)
+            }
+            .launchIn(viewModelScope)
     }
 
     private fun getNavAction(
@@ -55,7 +60,7 @@ class LauncherViewModel(
                 else -> LauncherState.NavigateToOnboardingAction
             }
         } else {
-            LauncherState.Loading
+            LauncherState.Default
         }
     }
 

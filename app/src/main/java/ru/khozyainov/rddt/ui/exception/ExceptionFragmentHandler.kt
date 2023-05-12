@@ -3,7 +3,7 @@ package ru.khozyainov.rddt.ui.exception
 /**
 * This interface is implemented by fragments that handle error conditions
 */
-interface ExceptionHandler {
+interface ExceptionFragmentHandler {
 
     /**
     * this function should be called when it is necessary to notify the user that an error has occurred

@@ -26,5 +26,13 @@
     <string name="chat">Chat</string>
     <string name="profile">Profile</string>
 
+<!--    feed toolbar-->
+    <string name="sort_controversial">Controversial</string>
+    <string name="sort_hot">Hot</string>
+    <string name="sort_new">New</string>
+    <string name="sort_rising">Rising</string>
+    <string name="sort_top">Top</string>
+    <string name="search">Search</string>
+
 
 </resources>

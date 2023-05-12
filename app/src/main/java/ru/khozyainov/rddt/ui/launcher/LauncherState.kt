@@ -4,6 +4,6 @@ sealed class LauncherState {
     object NavigateToOnboardingAction : LauncherState()
     object NavigateToLoginAction : LauncherState()
     object NavigateToMainActivityAction : LauncherState()
-    object Loading : LauncherState()
-    class Error(val exception: Throwable) : LauncherState()
+    data class Error(val exception: Throwable) : LauncherState()
+    object Default : LauncherState()
 }
