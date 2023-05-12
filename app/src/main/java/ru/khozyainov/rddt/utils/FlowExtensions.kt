@@ -1,7 +1,9 @@
 package ru.khozyainov.rddt.utils
 
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
+import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -12,6 +14,8 @@ import kotlinx.coroutines.flow.callbackFlow
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.scan
 import kotlinx.coroutines.launch
+import ru.khozyainov.rddt.R
+import ru.khozyainov.rddt.ui.exception.ExceptionFragment
 
 //inline fun <T> Flow<T>.launchAndCollect(
 //    owner: LifecycleOwner,
@@ -101,3 +105,10 @@ fun <T> Flow<T>.simpleScan(count: Int): Flow<List<T?>> {
     val items = List<T?>(count) { null }
     return this.scan(items) { previous, value -> previous.drop(1) + value }
 }
+
+//fun ExceptionFragment.onException(activity: AppCompatActivity){
+//    activity.supportFragmentManager.beginTransaction()
+//        .add(R.id.containerLauncherActivity, ExceptionFragment())
+//        .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+//        .commit()
+//}
