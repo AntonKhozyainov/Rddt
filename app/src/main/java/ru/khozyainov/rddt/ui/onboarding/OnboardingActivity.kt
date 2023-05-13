@@ -1,6 +1,7 @@
 package ru.khozyainov.rddt.ui.onboarding
 
 import android.os.Bundle
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import ru.khozyainov.rddt.databinding.ActivityOnboardingBinding
 import ru.khozyainov.rddt.ui.launcher.LauncherActivity
@@ -14,6 +15,7 @@ class OnboardingActivity :
     private val viewModel by viewModel<OnboardingViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        installSplashScreen()
         super.onCreate(savedInstanceState)
         observeState()
         setAdapter()

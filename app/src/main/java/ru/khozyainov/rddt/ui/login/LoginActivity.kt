@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.TypedValue
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.core.view.isVisible
 import net.openid.appauth.AuthorizationException
 import net.openid.appauth.AuthorizationResponse
@@ -31,6 +32,7 @@ class LoginActivity : ViewBindingActivity<ActivityLoginBinding>(ActivityLoginBin
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        installSplashScreen()
         super.onCreate(savedInstanceState)
 
         changeColorStatusBar(attrColor = com.google.android.material.R.attr.colorPrimary)

@@ -16,6 +16,7 @@ class LauncherActivity : AppCompatActivityWithExceptionDialog() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         installSplashScreen()
+            .setKeepOnScreenCondition{true}
         super.onCreate(savedInstanceState)
         observeState()
     }
