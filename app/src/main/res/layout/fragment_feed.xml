@@ -5,25 +5,13 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <com.google.android.material.appbar.AppBarLayout
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/feedToolBar"
+        style="@style/ToolbarStyle"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fitsSystemWindows="true">
-
-        <com.google.android.material.appbar.CollapsingToolbarLayout
-            style="?attr/collapsingToolbarLayoutMediumStyle"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/collapsingToolbarLayoutMediumSize">
-
-            <com.google.android.material.appbar.MaterialToolbar
-                android:layout_width="match_parent"
-                android:layout_height="?actionBarSize"
-                app:title="AAAAAAAAAAAAAAAAAAAAAAAAAAAA"
-                android:elevation="0dp" />
-
-        </com.google.android.material.appbar.CollapsingToolbarLayout>
-
-    </com.google.android.material.appbar.AppBarLayout>
+        android:layout_height="?actionBarSize"
+        android:elevation="0dp"
+        app:menu="@menu/feed_toolbar_menu" />
 
 
 </LinearLayout>

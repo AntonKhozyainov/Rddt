@@ -1,6 +1,5 @@
 package ru.khozyainov.data.mapper
 
-import ru.khozyainov.data.base.EntityMapper
 import ru.khozyainov.data.models.TokenEntity
 import ru.khozyainov.domain.model.Token
 

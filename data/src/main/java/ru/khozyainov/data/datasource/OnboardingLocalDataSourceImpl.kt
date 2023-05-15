@@ -19,10 +19,8 @@ class OnboardingLocalDataSourceImpl(
         }
 
     override suspend fun saveOnBoardingState(onboarding: OnboardingEntity) {
-        withContext(Dispatchers.IO) {
-            dataStore.value.edit { preferences ->
-                preferences[ONBOARDING_VIEWED] = onboarding.viewed
-            }
+        dataStore.value.edit { preferences ->
+            preferences[ONBOARDING_VIEWED] = onboarding.viewed
         }
     }
 

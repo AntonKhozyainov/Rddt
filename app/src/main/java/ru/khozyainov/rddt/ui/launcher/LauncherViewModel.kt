@@ -19,8 +19,7 @@ class LauncherViewModel(
     private val getLoginStateUseCase: GetLoginStateUseCase
 ) : ViewModel() {
 
-    private val uiMutableState =
-        MutableStateFlow<LauncherState>(LauncherState.Default)
+    private val uiMutableState = MutableStateFlow<LauncherState>(LauncherState.Default)
     val uiState: StateFlow<LauncherState> = uiMutableState
 
     private var job: Job? = null
@@ -29,29 +28,23 @@ class LauncherViewModel(
         refresh()
     }
 
-    fun refresh(){
+    fun refresh() {
         job = combine(
-            getOnboardingStateUseCase(),
-            getLoginStateUseCase()
+            getOnboardingStateUseCase(), getLoginStateUseCase()
         ) { onboarding, login ->
             onboarding to login
         }.onEach { (onboarding, login) ->
-            uiMutableState.value =
-                getNavAction(
-                    onboardingViewed = onboarding.viewed,
-                    loginCompleted = login.accessToken.isNotEmpty()
-                )
-        }
-            .flowOn(Dispatchers.IO)
-            .catch { exception ->
-                uiMutableState.value = LauncherState.Error(exception)
-            }
-            .launchIn(viewModelScope)
+            uiMutableState.value = getNavAction(
+                onboardingViewed = onboarding.viewed,
+                loginCompleted = login.accessToken.isNotEmpty()
+            )
+        }.flowOn(Dispatchers.IO).catch { exception ->
+            uiMutableState.value = LauncherState.Error(exception)
+        }.launchIn(viewModelScope)
     }
 
     private fun getNavAction(
-        onboardingViewed: Boolean?,
-        loginCompleted: Boolean?
+        onboardingViewed: Boolean?, loginCompleted: Boolean?
     ): LauncherState {
         return if (onboardingViewed != null && loginCompleted != null) {
             when {

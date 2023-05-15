@@ -13,7 +13,7 @@
 
     <item
         android:id="@+id/toolbarSortMenu"
-        android:icon="@drawable/sort_menu"
+        android:icon="@drawable/sort_hot"
         android:iconTint="?attr/colorOnBackground"
         android:title=""
         app:iconTint="?attr/colorOnBackground"

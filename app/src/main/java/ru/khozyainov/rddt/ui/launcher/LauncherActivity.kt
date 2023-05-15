@@ -15,8 +15,7 @@ class LauncherActivity : AppCompatActivityWithExceptionDialog() {
     private val viewModel by viewModel<LauncherViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        installSplashScreen()
-            .setKeepOnScreenCondition{true}
+        installSplashScreen().setKeepOnScreenCondition { true }
         super.onCreate(savedInstanceState)
         observeState()
     }

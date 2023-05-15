@@ -17,17 +17,17 @@ import kotlinx.coroutines.launch
 import ru.khozyainov.rddt.R
 import ru.khozyainov.rddt.ui.exception.ExceptionFragment
 
-//inline fun <T> Flow<T>.launchAndCollect(
-//    owner: LifecycleOwner,
-//    minActiveState: Lifecycle.State = Lifecycle.State.STARTED,
-//    crossinline action: suspend CoroutineScope.(T) -> Unit
-//) = owner.lifecycleScope.launch {
-//    owner.repeatOnLifecycle(minActiveState) {
-//        collect {
-//            action(it)
-//        }
-//    }
-//}
+inline fun <T> Flow<T>.launchAndCollect(
+    owner: LifecycleOwner,
+    minActiveState: Lifecycle.State = Lifecycle.State.STARTED,
+    crossinline action: suspend CoroutineScope.(T) -> Unit
+) = owner.lifecycleScope.launch {
+    owner.repeatOnLifecycle(minActiveState) {
+        collect {
+            action(it)
+        }
+    }
+}
 
 inline fun <T> Flow<T>.launchAndCollectLatest(
     owner: LifecycleOwner,

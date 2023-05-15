@@ -18,13 +18,11 @@ class OnboardingAdapter(
             image = R.drawable.onboarding_welcome,
             title = R.string.title_onboarding_1,
             description = R.string.description_onboarding_1
-        ),
-        OnboardingItem(
+        ), OnboardingItem(
             image = R.drawable.onboarding_sub_rddt,
             title = R.string.title_onboarding_2,
             description = R.string.description_onboarding_2
-        ),
-        OnboardingItem(
+        ), OnboardingItem(
             image = R.drawable.onboarding_share_and_save,
             title = R.string.title_onboarding_3,
             description = R.string.description_onboarding_3
@@ -41,9 +39,7 @@ class OnboardingAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
         val binding = ItemOnboardingBinding.inflate(
-            LayoutInflater.from(parent.context),
-            parent,
-            false
+            LayoutInflater.from(parent.context), parent, false
         )
 
         with(binding) {

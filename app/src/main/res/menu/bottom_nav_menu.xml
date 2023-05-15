@@ -4,17 +4,17 @@
     <item
         android:id="@+id/feed"
         android:contentDescription="@string/feed"
-        android:icon="@drawable/feed"
+        android:icon="@drawable/bottom_nav_feed"
         android:title="@string/feed" />
     <item
         android:id="@+id/chat"
         android:contentDescription="@string/chat"
-        android:icon="@drawable/chat"
+        android:icon="@drawable/bottom_nav_chat"
         android:title="@string/chat" />
     <item
         android:id="@+id/profile"
         android:contentDescription="@string/profile"
-        android:icon="@drawable/profile"
+        android:icon="@drawable/bottom_nav_profile"
         android:title="@string/profile" />
 
 </menu>

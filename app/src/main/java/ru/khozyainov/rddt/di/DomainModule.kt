@@ -1,6 +1,8 @@
 package ru.khozyainov.rddt.di
 
 import org.koin.dsl.module
+import ru.khozyainov.domain.usecase.feed.GetPostSortTypeUseCase
+import ru.khozyainov.domain.usecase.feed.SetPostSortTypeUseCase
 import ru.khozyainov.domain.usecase.login.GetLoginIntentUseCase
 import ru.khozyainov.domain.usecase.login.GetLoginStateUseCase
 import ru.khozyainov.domain.usecase.login.GetTokenByRequestUseCase
@@ -27,5 +29,13 @@ val domainModule = module {
 
     factory {
         GetTokenByRequestUseCase(authRepository = get())
+    }
+
+    factory {
+        GetPostSortTypeUseCase(postRepository = get())
+    }
+
+    factory {
+        SetPostSortTypeUseCase(postRepository = get())
     }
 }
