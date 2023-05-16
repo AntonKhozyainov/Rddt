@@ -9,7 +9,6 @@ class SetPostSortTypeUseCase(
     private val postRepository: PostRepository
 ) {
     suspend operator fun invoke(postSortType: PostSortType) = execute(postSortType = postSortType)
-
     private suspend fun execute(postSortType: PostSortType) = withContext(Dispatchers.IO) {
         postRepository.setSortType(sortType = postSortType)
     }

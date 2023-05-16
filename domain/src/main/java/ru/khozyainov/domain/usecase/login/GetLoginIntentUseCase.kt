@@ -7,5 +7,4 @@ class GetLoginIntentUseCase(
     private val authRepository: AuthRepository
 ) {
     suspend operator fun invoke(): Intent = authRepository.getLoginPageIntent()
-
 }
