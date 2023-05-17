@@ -4,9 +4,11 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.test.runTest
+import org.junit.After
 import org.junit.Assert.assertEquals
 import org.junit.Test
 import org.mockito.kotlin.mock
+import org.mockito.kotlin.reset
 import org.mockito.kotlin.whenever
 import ru.khozyainov.domain.model.Token
 import ru.khozyainov.domain.repo.AuthRepository
@@ -16,8 +18,13 @@ class GetLoginStateUseCaseTest {
 
     private val authRepository = mock<AuthRepository>()
 
+    @After
+    fun tearDown() {
+        reset(authRepository)
+    }
+
     @Test
-    fun shouldReturnCurrentToken() = runTest {
+    fun `should return correct token`() = runTest {
         //given
         val expected = Token(accessToken = "123")
 

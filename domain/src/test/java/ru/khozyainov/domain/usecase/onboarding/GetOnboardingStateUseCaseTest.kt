@@ -24,16 +24,14 @@ class GetOnboardingStateUseCaseTest {
 
     @OptIn(ExperimentalCoroutinesApi::class)
     @Test
-    fun shouldReturnCorrectDataFromRepository() = runTest {
-
+    fun `should return correct onboarding state`() = runTest {
         //given
         val testOnboardingFlow = flow { emit(Onboarding(viewed = true)) }
         val expected = flow { emit(Onboarding(viewed = true)) }
 
         //when
         whenever(onboardingRepository.getOnboardingState()).thenReturn(testOnboardingFlow)
-        val useCase = GetOnboardingStateUseCase(onboardingRepository = onboardingRepository)
-        val actual = useCase()
+        val actual = GetOnboardingStateUseCase(onboardingRepository = onboardingRepository).invoke()
 
         //then
         assertEquals(expected.first(), actual.first())

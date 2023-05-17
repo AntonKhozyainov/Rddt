@@ -14,7 +14,7 @@ class OnboardingViewedUseCaseTest {
 
     @OptIn(ExperimentalCoroutinesApi::class)
     @Test
-    fun shouldRunWithoutException() = runTest {
+    fun `should run without exception`() = runTest {
         whenever(onboardingRepository.setOnboardingState(onboarding = any()))
         val useCase = OnboardingViewedUseCase(onboardingRepository = onboardingRepository)
         useCase(onboarding = any())

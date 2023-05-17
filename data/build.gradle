@@ -43,13 +43,23 @@ dependencies {
 
     implementation project(path: ":domain")
 
-    //Tests
+    implementation "androidx.core:core-ktx:$core_ktx_version"
+
+    //JUnit
     testImplementation "junit:junit:$junit_version"
     androidTestImplementation "androidx.test.ext:junit:$test_junit_version"
+
+    //Espresso
     androidTestImplementation "androidx.test.espresso:espresso-core:$espresso_version"
+
+    //Mockito
+    testImplementation "org.mockito:mockito-core:$mockito_version"
+    testImplementation "org.mockito.kotlin:mockito-kotlin:$mockito_version"
+    testImplementation "org.mockito:mockito-inline:$mockito_version"
 
     //Coroutines
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines_version"
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutines_version"
 
     //DataStore
     implementation "androidx.datastore:datastore-preferences:$datastore_version"
