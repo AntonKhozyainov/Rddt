@@ -84,7 +84,7 @@ class LoginActivity : ViewBindingActivity<ActivityLoginBinding>(ActivityLoginBin
             AuthorizationResponse.fromIntent(intent)?.createTokenExchangeRequest()
         when {
             exception != null -> viewModel.onAuthFailed(exception)
-            tokenExchangeRequest != null -> viewModel.getTokenByRequest(tokenExchangeRequest)
+            tokenExchangeRequest != null -> viewModel.getAndSaveTokenByRequest(tokenExchangeRequest)
         }
     }
 

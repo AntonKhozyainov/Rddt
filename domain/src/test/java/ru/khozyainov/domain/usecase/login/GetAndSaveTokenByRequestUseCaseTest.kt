@@ -15,7 +15,7 @@ import ru.khozyainov.domain.repo.AuthRepository
 
 @OptIn(ExperimentalCoroutinesApi::class)
 @RunWith(Parameterized::class)
-class GetTokenByRequestUseCaseTest(
+class GetAndSaveTokenByRequestUseCaseTest(
     private val expected: Boolean
 ) {
 
@@ -30,10 +30,10 @@ class GetTokenByRequestUseCaseTest(
         val testTokenRequest = mock<TokenRequest>()
 
         //when
-        whenever(authRepository.getTokenByRequest(tokenRequest = testTokenRequest)).thenReturn(
+        whenever(authRepository.getAndSaveTokenByRequest(tokenRequest = testTokenRequest)).thenReturn(
             expected
         )
-        val useCase = GetTokenByRequestUseCase(authRepository = authRepository)
+        val useCase = GetAndSaveTokenByRequestUseCase(authRepository = authRepository)
         val actual = useCase(tokenRequest = testTokenRequest)
 
         //then

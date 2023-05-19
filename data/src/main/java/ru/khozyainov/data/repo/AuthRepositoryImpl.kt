@@ -27,7 +27,7 @@ class AuthRepositoryImpl(
         return authRemoteDataSource.getLoginPageIntent(deviceId)
     }
 
-    override suspend fun getTokenByRequest(tokenRequest: TokenRequest): Boolean {
+    override suspend fun getAndSaveTokenByRequest(tokenRequest: TokenRequest): Boolean {
         val token = authRemoteDataSource.performTokenRequestSuspend(tokenRequest)
         return authLocalDataSource.setToken(token)
     }

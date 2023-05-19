@@ -5,7 +5,7 @@ import ru.khozyainov.domain.usecase.feed.GetPostSortTypeUseCase
 import ru.khozyainov.domain.usecase.feed.SetPostSortTypeUseCase
 import ru.khozyainov.domain.usecase.login.GetLoginIntentUseCase
 import ru.khozyainov.domain.usecase.login.GetLoginStateUseCase
-import ru.khozyainov.domain.usecase.login.GetTokenByRequestUseCase
+import ru.khozyainov.domain.usecase.login.GetAndSaveTokenByRequestUseCase
 import ru.khozyainov.domain.usecase.onboarding.GetOnboardingStateUseCase
 import ru.khozyainov.domain.usecase.onboarding.OnboardingViewedUseCase
 
@@ -28,7 +28,7 @@ val domainModule = module {
     }
 
     factory {
-        GetTokenByRequestUseCase(authRepository = get())
+        GetAndSaveTokenByRequestUseCase(authRepository = get())
     }
 
     factory {

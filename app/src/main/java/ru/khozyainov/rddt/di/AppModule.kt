@@ -2,7 +2,6 @@ package ru.khozyainov.rddt.di
 
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
-import ru.khozyainov.data.mapper.PostSortTypeMapper
 import ru.khozyainov.rddt.mapper.UiPostSortTypeMapper
 import ru.khozyainov.rddt.ui.feed.FeedViewModel
 import ru.khozyainov.rddt.ui.launcher.LauncherViewModel
@@ -28,7 +27,7 @@ val appModule = module {
     viewModel {
         LoginViewModel(
             getLoginIntentUseCase = get(),
-            getTokenByRequestUseCase = get()
+            getAndSaveTokenByRequestUseCase = get()
         )
     }
 

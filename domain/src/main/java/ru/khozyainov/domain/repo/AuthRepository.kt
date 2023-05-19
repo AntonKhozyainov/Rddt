@@ -8,5 +8,5 @@ import ru.khozyainov.domain.model.Token
 interface AuthRepository {
     fun getToken(): Flow<Token>
     suspend fun getLoginPageIntent(): Intent
-    suspend fun getTokenByRequest(tokenRequest: TokenRequest): Boolean
+    suspend fun getAndSaveTokenByRequest(tokenRequest: TokenRequest): Boolean
 }

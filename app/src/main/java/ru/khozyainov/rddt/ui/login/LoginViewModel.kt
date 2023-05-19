@@ -8,11 +8,11 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import net.openid.appauth.TokenRequest
 import ru.khozyainov.domain.usecase.login.GetLoginIntentUseCase
-import ru.khozyainov.domain.usecase.login.GetTokenByRequestUseCase
+import ru.khozyainov.domain.usecase.login.GetAndSaveTokenByRequestUseCase
 
 class LoginViewModel(
     private val getLoginIntentUseCase: GetLoginIntentUseCase,
-    private val getTokenByRequestUseCase: GetTokenByRequestUseCase
+    private val getAndSaveTokenByRequestUseCase: GetAndSaveTokenByRequestUseCase
 ) : ViewModel() {
 
     private val uiMutableState = MutableStateFlow<LoginState>(LoginState.Default)
@@ -34,10 +34,11 @@ class LoginViewModel(
         }
     }
 
-    fun getTokenByRequest(tokenRequest: TokenRequest) {
+    fun getAndSaveTokenByRequest(tokenRequest: TokenRequest) {
         setLoadingState()
         viewModelScope.launch(errorHandler) {
-            if (getTokenByRequestUseCase(tokenRequest)) {
+            val tokenReceived = getAndSaveTokenByRequestUseCase(tokenRequest)
+            if (tokenReceived) {
                 uiMutableState.value = LoginState.NavigateToLaunchAction
             }
         }
