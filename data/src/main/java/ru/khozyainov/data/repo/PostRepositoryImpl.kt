@@ -4,6 +4,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import ru.khozyainov.data.datasource.PostSortTypeLocalDataSource
 import ru.khozyainov.data.mapper.PostSortTypeMapper
+import ru.khozyainov.domain.model.PostRequestArgs
 import ru.khozyainov.domain.model.PostSortType
 import ru.khozyainov.domain.repo.PostRepository
 
@@ -22,5 +23,9 @@ class PostRepositoryImpl(
         postSortTypeLocalDataSource.saveSortType(
             sortType = postSortTypeMapper.mapToEntity(model = sortType)
         )
+    }
+
+    override fun getPosts(args: PostRequestArgs) {
+        TODO("Not yet implemented")
     }
 }

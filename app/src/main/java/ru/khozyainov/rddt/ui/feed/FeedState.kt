@@ -4,7 +4,8 @@ import ru.khozyainov.rddt.model.UiPostSortType
 
 sealed class FeedState {
     data class Default(
-        val sortType: UiPostSortType = UiPostSortType.HOT
+        val sortType: UiPostSortType = UiPostSortType.HOT,
+        val query: String
     ) : FeedState()
 
     object Loading : FeedState()

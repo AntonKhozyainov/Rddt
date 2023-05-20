@@ -2,8 +2,15 @@ package ru.khozyainov.rddt.ui.feed
 
 import android.content.Context
 import android.os.Bundle
+import android.view.MenuItem
 import android.view.View
+import android.widget.Toast
+import androidx.annotation.IdRes
+import androidx.appcompat.widget.SearchView
 import androidx.core.content.ContextCompat.getDrawable
+import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.flow.onStart
+import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import ru.khozyainov.rddt.R
 import ru.khozyainov.rddt.databinding.FragmentFeedBinding
@@ -12,6 +19,8 @@ import ru.khozyainov.rddt.ui.exception.ExceptionFragmentHandler
 import ru.khozyainov.rddt.utils.ViewBindingFragment
 import ru.khozyainov.rddt.utils.changeColorStatusBar
 import ru.khozyainov.rddt.utils.launchAndCollectLatest
+import ru.khozyainov.rddt.utils.postSortChangeFlow
+import ru.khozyainov.rddt.utils.searchChangeFlow
 
 class FeedFragment : ViewBindingFragment<FragmentFeedBinding>(FragmentFeedBinding::inflate),
     ExceptionFragmentHandler {
@@ -25,8 +34,10 @@ class FeedFragment : ViewBindingFragment<FragmentFeedBinding>(FragmentFeedBindin
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        initSearchAndSortChangeFlow()
         observeState()
-        changeSortListener()
+        //changeSortListener()
     }
 
 
@@ -52,6 +63,7 @@ class FeedFragment : ViewBindingFragment<FragmentFeedBinding>(FragmentFeedBindin
             when (feedState) {
                 is FeedState.Default -> {
                     setIconSortType(feedState.sortType)
+                    Toast.makeText(requireContext(), feedState.query, Toast.LENGTH_LONG).show()
                 }
 
                 is FeedState.Loading -> {
@@ -65,8 +77,16 @@ class FeedFragment : ViewBindingFragment<FragmentFeedBinding>(FragmentFeedBindin
         }
     }
 
+    private fun initSearchAndSortChangeFlow() = viewLifecycleOwner.lifecycleScope.launch{
+        val searchView = getToolbarMenuItem(itemId = R.id.toolbarSearch).actionView as SearchView
+        viewModel.updateSearchAndSortState(
+            queryFlow = searchView.searchChangeFlow().onStart { emit("") },
+            postSortFlow = binding.feedToolBar.postSortChangeFlow().onStart { emit(null) }
+        )
+    }
+
     private fun setIconSortType(sortType: UiPostSortType) {
-        val toolbarSortMenu = binding.feedToolBar.menu.findItem(R.id.toolbarSortMenu)
+        val toolbarSortMenu = getToolbarMenuItem(itemId = R.id.toolbarSortMenu)
         val iconRes = when (sortType) {
             UiPostSortType.HOT -> R.drawable.sort_hot
             UiPostSortType.NEW -> R.drawable.sort_new
@@ -77,38 +97,7 @@ class FeedFragment : ViewBindingFragment<FragmentFeedBinding>(FragmentFeedBindin
         toolbarSortMenu.icon = getDrawable(requireContext(), iconRes)
     }
 
-    private fun changeSortListener() {
+    private fun getToolbarMenuItem(@IdRes itemId: Int): MenuItem =
+        binding.feedToolBar.menu.findItem(itemId)
 
-        binding.feedToolBar.setOnMenuItemClickListener { menuItem ->
-            when (menuItem.itemId) {
-                R.id.feedSortHot -> {
-                    viewModel.setPostSortType(UiPostSortType.HOT)
-                    true
-                }
-
-                R.id.feedSortNew -> {
-                    viewModel.setPostSortType(UiPostSortType.NEW)
-                    true
-                }
-
-                R.id.feedSortTop -> {
-                    viewModel.setPostSortType(UiPostSortType.TOP)
-                    true
-                }
-
-                R.id.feedSortControversial -> {
-                    viewModel.setPostSortType(UiPostSortType.CONTROVERSIAL)
-                    true
-                }
-
-                R.id.feedSortRising -> {
-                    viewModel.setPostSortType(UiPostSortType.RISING)
-                    true
-                }
-
-                else -> false
-            }
-
-        }
-    }
 }

@@ -1,10 +1,11 @@
 package ru.khozyainov.rddt.utils
 
+
 import android.view.View
-import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
-import androidx.fragment.app.FragmentTransaction
+import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.*
+import com.google.android.material.appbar.MaterialToolbar
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.channels.awaitClose
@@ -15,7 +16,7 @@ import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.scan
 import kotlinx.coroutines.launch
 import ru.khozyainov.rddt.R
-import ru.khozyainov.rddt.ui.exception.ExceptionFragment
+import ru.khozyainov.rddt.model.UiPostSortType
 
 inline fun <T> Flow<T>.launchAndCollect(
     owner: LifecycleOwner,
@@ -53,26 +54,71 @@ inline fun <T> Flow<T>.launchAndCollectLatestForActivity(
     }
 }
 
-fun SearchView.searchChangeFlow(): Flow<String>{
+fun SearchView.searchChangeFlow(): Flow<String> {
     return callbackFlow {
         val searchWatcher = object : SearchView.OnQueryTextListener, View.OnFocusChangeListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
+                trySendBlocking(query.orEmpty())
                 return true
             }
 
             override fun onQueryTextChange(newText: String?): Boolean {
-                trySendBlocking(newText.orEmpty())
                 return true
             }
 
-            override fun onFocusChange(v: View?, hasFocus: Boolean) {}
+            override fun onFocusChange(v: View?, hasFocus: Boolean) {
+                if (!hasFocus) trySendBlocking(String())
+            }
 
         }
 
         this@searchChangeFlow.setOnQueryTextListener(searchWatcher)
+        this@searchChangeFlow.setOnQueryTextFocusChangeListener(searchWatcher)
 
         awaitClose {
             this@searchChangeFlow.setOnQueryTextListener(null)
+            this@searchChangeFlow.setOnQueryTextFocusChangeListener(null)
+        }
+    }
+}
+
+fun MaterialToolbar.postSortChangeFlow(): Flow<UiPostSortType?> {
+    return callbackFlow {
+        val onMenuItemClickListener = Toolbar.OnMenuItemClickListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.feedSortHot -> {
+                    trySendBlocking(UiPostSortType.HOT)
+                    true
+                }
+
+                R.id.feedSortNew -> {
+                    trySendBlocking(UiPostSortType.NEW)
+                    true
+                }
+
+                R.id.feedSortTop -> {
+                    trySendBlocking(UiPostSortType.TOP)
+                    true
+                }
+
+                R.id.feedSortControversial -> {
+                    trySendBlocking(UiPostSortType.CONTROVERSIAL)
+                    true
+                }
+
+                R.id.feedSortRising -> {
+                    trySendBlocking(UiPostSortType.RISING)
+                    true
+                }
+
+                else -> false
+            }
+        }
+
+        this@postSortChangeFlow.setOnMenuItemClickListener(onMenuItemClickListener)
+
+        awaitClose {
+            this@postSortChangeFlow.setOnMenuItemClickListener(null)
         }
     }
 }
