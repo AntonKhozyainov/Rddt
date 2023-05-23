@@ -4,7 +4,7 @@ import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.stringPreferencesKey
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
-import ru.khozyainov.data.local.RddtDataStore
+import ru.khozyainov.data.local.datastore.RddtDataStore
 import ru.khozyainov.data.models.PostSortTypeEntity
 
 class PostSortTypeLocalDataSourceImpl(

@@ -6,10 +6,14 @@ import ru.khozyainov.domain.model.PostSortType
 class PostSortTypeMapper: EntityMapper<PostSortType, PostSortTypeEntity> {
 
     override fun mapToDomain(entity: PostSortTypeEntity): PostSortType {
-        return PostSortType(sort = entity.sortType)
+        return PostSortType(
+            sort = entity.sortType.uppercase()
+        )
     }
 
     override fun mapToEntity(model: PostSortType): PostSortTypeEntity {
-        return PostSortTypeEntity(sortType = model.sort)
+        return PostSortTypeEntity(
+            sortType = model.sort.lowercase()
+        )
     }
 }

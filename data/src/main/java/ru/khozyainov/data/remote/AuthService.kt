@@ -1,4 +1,4 @@
-package ru.khozyainov.data.network
+package ru.khozyainov.data.remote
 
 import android.content.Context
 import android.net.Uri

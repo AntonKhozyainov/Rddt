@@ -17,6 +17,8 @@ buildscript {
         okhttp_version = '5.0.0-alpha.10'
         moshi_version = '1.14.0'
         retrofit_version = '2.9.0'
+        paging_version = '3.1.1'
+        room_version = "2.5.1"
 
 //        core_ktx_version = "1.9.0"
 //        appcompat_version = "1.5.1"
@@ -30,7 +32,6 @@ buildscript {
 //        dotsindicator_version = "4.3"
 //        recyclerview_version = "1.2.1"
 //        recyclerview_animators_version = "4.0.2"
-//        paging_version = "3.1.1"
 //        threetenabp_version = "1.4.1"
 //        lifecycle_version = "2.5.1"
 //        navigation_version = "2.5.3"
@@ -59,4 +60,5 @@ plugins {
     id 'com.android.library' version '8.0.0' apply false
     id 'org.jetbrains.kotlin.android' version '1.8.0' apply false
     id 'org.jetbrains.kotlin.jvm' version '1.8.0' apply false
+    id 'com.google.devtools.ksp' version '1.8.10-1.0.9' apply false
 }

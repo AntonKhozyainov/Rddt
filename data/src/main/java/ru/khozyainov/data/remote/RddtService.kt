@@ -1,26 +1,29 @@
-package ru.khozyainov.data.network
+package ru.khozyainov.data.remote
 
 import com.squareup.moshi.Moshi
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
+import retrofit2.create
+import ru.khozyainov.data.remote.api.PostApi
+import ru.khozyainov.data.remote.interceptor.AuthorizationFailedInterceptor
+import ru.khozyainov.data.remote.interceptor.AuthorizationInterceptor
 
-class RddtNetwork(
-    private val authorizationInterceptor: AuthorizationInterceptor,
-    //private val authorizationFailedInterceptor: AuthorizationFailedInterceptor
+class RddtService(
+    authorizationInterceptor: AuthorizationInterceptor,
+    authorizationFailedInterceptor: AuthorizationFailedInterceptor
 ) {
 
-    fun providesOkHttpClient(): OkHttpClient = OkHttpClient.Builder()
+    private val client = OkHttpClient.Builder()
         //TAG: okhttp.OkHttpClient
         .addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
         .addNetworkInterceptor(authorizationInterceptor)
-        //.addInterceptor(authorizationFailedInterceptor)
+        .addInterceptor(authorizationFailedInterceptor)
         .followRedirects(true)
         .build()
 
-    private fun getRetrofit(): Retrofit {
-        return Retrofit.Builder()
+    private val retrofit = Retrofit.Builder()
             .baseUrl(BASE_URL)
             .addConverterFactory(
                 MoshiConverterFactory.create(
@@ -28,12 +31,12 @@ class RddtNetwork(
                         .build()
                 )
             )
-            .client(
-                providesOkHttpClient()
-            )
+            .client(client)
             .build()
-    }
 
+
+    val postApi: PostApi
+        get() = retrofit.create()
 
     companion object {
         private const val BASE_URL = "https://oauth.reddit.com/api/v1/"

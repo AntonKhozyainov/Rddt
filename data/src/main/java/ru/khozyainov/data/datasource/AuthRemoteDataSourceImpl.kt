@@ -5,8 +5,8 @@ import androidx.browser.customtabs.CustomTabsIntent
 import net.openid.appauth.ClientSecretBasic
 import net.openid.appauth.TokenRequest
 import ru.khozyainov.data.models.TokenEntity
-import ru.khozyainov.data.network.AuthService
-import ru.khozyainov.data.network.AuthService.Companion.PARAMETER_DEVICE_ID
+import ru.khozyainov.data.remote.AuthService
+import ru.khozyainov.data.remote.AuthService.Companion.PARAMETER_DEVICE_ID
 import kotlin.coroutines.suspendCoroutine
 
 class AuthRemoteDataSourceImpl(

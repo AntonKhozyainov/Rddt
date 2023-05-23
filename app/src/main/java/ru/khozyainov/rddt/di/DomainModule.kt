@@ -2,6 +2,7 @@ package ru.khozyainov.rddt.di
 
 import org.koin.dsl.module
 import ru.khozyainov.domain.usecase.feed.GetPostSortTypeUseCase
+import ru.khozyainov.domain.usecase.feed.GetPostsUseCase
 import ru.khozyainov.domain.usecase.feed.SetPostSortTypeUseCase
 import ru.khozyainov.domain.usecase.login.GetLoginIntentUseCase
 import ru.khozyainov.domain.usecase.login.GetLoginStateUseCase
@@ -37,5 +38,9 @@ val domainModule = module {
 
     factory {
         SetPostSortTypeUseCase(postRepository = get())
+    }
+
+    factory {
+        GetPostsUseCase(postRepository = get())
     }
 }

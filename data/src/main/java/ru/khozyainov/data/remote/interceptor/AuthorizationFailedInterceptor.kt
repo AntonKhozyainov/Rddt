@@ -1,4 +1,4 @@
-package ru.khozyainov.data.network
+package ru.khozyainov.data.remote.interceptor
 
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.runBlocking
@@ -10,11 +10,12 @@ import okhttp3.Response
 import okhttp3.internal.closeQuietly
 import ru.khozyainov.data.datasource.AuthLocalDataSource
 import ru.khozyainov.data.models.TokenEntity
-import ru.khozyainov.data.network.AuthService.Companion.AUTHORIZATION_HEADER
-import ru.khozyainov.data.network.AuthService.Companion.CLIENT_ID
-import ru.khozyainov.data.network.AuthService.Companion.INSTALLED_CLIENT
-import ru.khozyainov.data.network.AuthService.Companion.OAUTH_SCOPE
-import ru.khozyainov.data.network.AuthService.Companion.PARAMETER_DEVICE_ID
+import ru.khozyainov.data.remote.AuthService
+import ru.khozyainov.data.remote.AuthService.Companion.AUTHORIZATION_HEADER
+import ru.khozyainov.data.remote.AuthService.Companion.CLIENT_ID
+import ru.khozyainov.data.remote.AuthService.Companion.INSTALLED_CLIENT
+import ru.khozyainov.data.remote.AuthService.Companion.OAUTH_SCOPE
+import ru.khozyainov.data.remote.AuthService.Companion.PARAMETER_DEVICE_ID
 import java.util.concurrent.CountDownLatch
 import java.util.concurrent.TimeUnit
 import kotlin.coroutines.suspendCoroutine

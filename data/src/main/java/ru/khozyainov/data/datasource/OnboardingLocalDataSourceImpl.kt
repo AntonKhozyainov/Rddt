@@ -2,11 +2,9 @@ package ru.khozyainov.data.datasource
 
 import androidx.datastore.preferences.core.booleanPreferencesKey
 import androidx.datastore.preferences.core.edit
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
-import kotlinx.coroutines.withContext
-import ru.khozyainov.data.local.RddtDataStore
+import ru.khozyainov.data.local.datastore.RddtDataStore
 import ru.khozyainov.data.models.OnboardingEntity
 
 class OnboardingLocalDataSourceImpl(

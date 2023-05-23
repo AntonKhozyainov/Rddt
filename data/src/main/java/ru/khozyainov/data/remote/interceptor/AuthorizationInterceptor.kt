@@ -1,11 +1,11 @@
-package ru.khozyainov.data.network
+package ru.khozyainov.data.remote.interceptor
 
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.runBlocking
 import okhttp3.Interceptor
 import okhttp3.Response
 import ru.khozyainov.data.datasource.AuthLocalDataSource
-import ru.khozyainov.data.network.AuthService.Companion.AUTHORIZATION_HEADER
+import ru.khozyainov.data.remote.AuthService.Companion.AUTHORIZATION_HEADER
 
 class AuthorizationInterceptor(
     private val authLocalDataSource: AuthLocalDataSource

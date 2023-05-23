@@ -14,6 +14,7 @@ import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import ru.khozyainov.domain.usecase.feed.GetPostSortTypeUseCase
+import ru.khozyainov.domain.usecase.feed.GetPostsUseCase
 import ru.khozyainov.domain.usecase.feed.SetPostSortTypeUseCase
 import ru.khozyainov.rddt.mapper.UiPostSortTypeMapper
 import ru.khozyainov.rddt.model.UiPostSortType
@@ -21,6 +22,7 @@ import ru.khozyainov.rddt.model.UiPostSortType
 class FeedViewModel(
     private val getPostSortTypeUseCase: GetPostSortTypeUseCase,
     private val setPostSortTypeUseCase: SetPostSortTypeUseCase,
+    private val getPostsUseCase: GetPostsUseCase,
     private val uiPostSortTypeMapper: UiPostSortTypeMapper
 ) : ViewModel() {
 
