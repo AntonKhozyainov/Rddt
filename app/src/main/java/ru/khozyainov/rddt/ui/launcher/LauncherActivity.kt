@@ -2,6 +2,7 @@ package ru.khozyainov.rddt.ui.launcher
 
 import android.os.Bundle
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import kotlinx.coroutines.flow.retry
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import ru.khozyainov.rddt.ui.MainActivity
 import ru.khozyainov.rddt.ui.exception.AppCompatActivityWithExceptionDialog

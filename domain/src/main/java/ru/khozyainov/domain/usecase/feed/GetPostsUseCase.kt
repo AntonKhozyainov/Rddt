@@ -10,7 +10,6 @@ import ru.khozyainov.domain.repo.PostRepository
 class GetPostsUseCase(
     private val postRepository: PostRepository
 ) {
-
     operator fun invoke(args: PostRequestArgs) : Flow<PagingData<Post>>
         = postRepository.getPosts(args = args)
 }

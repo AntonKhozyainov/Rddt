@@ -94,4 +94,12 @@ dependencies {
 
     //AppAuth
     implementation "net.openid:appauth:$appauth_version"
+
+    //Paging
+    implementation "androidx.paging:paging-runtime:$paging_version"
+
+    //OkHTTP
+    //implementation "com.squareup.okhttp3:okhttp:$okhttp_version"
+    implementation "com.squareup.okhttp3:logging-interceptor:$okhttp_version"
+
 }

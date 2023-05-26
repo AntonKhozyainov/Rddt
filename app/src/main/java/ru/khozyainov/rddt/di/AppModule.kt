@@ -2,7 +2,6 @@ package ru.khozyainov.rddt.di
 
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
-import ru.khozyainov.domain.usecase.feed.GetPostsUseCase
 import ru.khozyainov.rddt.mapper.UiPostSortTypeMapper
 import ru.khozyainov.rddt.ui.feed.FeedViewModel
 import ru.khozyainov.rddt.ui.launcher.LauncherViewModel
@@ -40,6 +39,15 @@ val appModule = module {
             uiPostSortTypeMapper = get()
         )
     }
+
+//    viewModel {
+//        FeedViewModelTry(
+//            getPostSortTypeUseCase = get(),
+//            setPostSortTypeUseCase = get(),
+//            getPostsUseCase = get(),
+//            uiPostSortTypeMapper = get()
+//        )
+//    }
 
     //Mapper
     single {

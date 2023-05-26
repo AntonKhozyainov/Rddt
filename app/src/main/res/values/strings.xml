@@ -34,5 +34,9 @@
     <string name="sort_top">Top</string>
     <string name="search">Search</string>
 
+<!--    item post-->
+    <string name="join">Join</string>
+    <string name="share">Share</string>
+
 
 </resources>

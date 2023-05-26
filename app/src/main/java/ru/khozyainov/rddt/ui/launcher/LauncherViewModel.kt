@@ -29,6 +29,7 @@ class LauncherViewModel(
     }
 
     fun refresh() {
+        job?.cancel()
         job = combine(
             getOnboardingStateUseCase(), getLoginStateUseCase()
         ) { onboarding, login ->
@@ -58,8 +59,8 @@ class LauncherViewModel(
     }
 
     override fun onCleared() {
-        super.onCleared()
         job?.cancel()
+        super.onCleared()
     }
 
 }

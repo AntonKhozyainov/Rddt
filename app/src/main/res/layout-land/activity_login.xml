@@ -10,6 +10,7 @@
         android:layout_width="300dp"
         android:layout_height="300dp"
         android:src="@drawable/logo_title"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/loginTitleTextView"
         app:layout_constraintHorizontal_bias="0.32"
         app:layout_constraintStart_toStartOf="parent"

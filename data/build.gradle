@@ -1,7 +1,6 @@
 plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
-    //id 'kotlin-kapt'
     id 'com.google.devtools.ksp'
 }
 
@@ -23,6 +22,13 @@ android {
 
         buildConfigField "String", "CLIENT_ID", localProperties['clienId']
         buildConfigField "String", "REDIRECT_URI", localProperties['redirectUri']
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments += ["room.schemaLocation":
+                                      "$projectDir/schemas".toString()]
+            }
+        }
     }
 
     buildTypes {
@@ -70,7 +76,6 @@ dependencies {
     //Moshi
     implementation "com.squareup.moshi:moshi:$moshi_version"
     implementation "com.squareup.moshi:moshi-kotlin:$moshi_version"
-    //kapt "com.squareup.moshi:moshi-kotlin-codegen:$moshi_version"
     ksp "com.squareup.moshi:moshi-kotlin-codegen:$moshi_version"
 
     //Retrofit
@@ -87,4 +92,5 @@ dependencies {
     implementation "androidx.room:room-runtime:$room_version"
     ksp "androidx.room:room-compiler:$room_version"
     implementation "androidx.room:room-paging:$room_version"
+    implementation "androidx.room:room-ktx:$room_version"
 }

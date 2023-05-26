@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingHorizontal="12dp"
+    android:paddingVertical="6dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/subredditImageItemPostImageView"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@tools:sample/avatars" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/subredditTitleItemPostImageView"
+            style="?attr/textAppearanceBody2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="12dp"
+            android:maxLines="1"
+            app:layout_constraintBottom_toBottomOf="@+id/subredditImageItemPostImageView"
+            app:layout_constraintStart_toEndOf="@+id/subredditImageItemPostImageView"
+            app:layout_constraintTop_toTopOf="@+id/subredditImageItemPostImageView"
+            tools:text="r/AskReddit" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/publicTimeItemPostImageView"
+            style="?attr/textAppearanceBody2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="6dp"
+            android:alpha="0.5"
+            android:maxLines="1"
+            app:layout_constraintBottom_toBottomOf="@+id/subredditImageItemPostImageView"
+            app:layout_constraintStart_toEndOf="@+id/subredditTitleItemPostImageView"
+            app:layout_constraintTop_toTopOf="@+id/subredditImageItemPostImageView"
+            tools:text="3h" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/joinItemPostButton"
+            style="?attr/textAppearanceButton"
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            android:layout_marginHorizontal="8dp"
+            android:text="@string/join"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/subredditImageItemPostImageView"
+            app:layout_constraintEnd_toStartOf="@+id/menuItemPostImageButton"
+            app:layout_constraintTop_toTopOf="@+id/subredditImageItemPostImageView" />
+
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/menuItemPostImageButton"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/post_menu"
+            app:layout_constraintBottom_toBottomOf="@+id/subredditImageItemPostImageView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/subredditImageItemPostImageView" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/titleItemPostTextView"
+            style="?attr/textAppearanceSubtitle1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:ellipsize="end"
+            android:maxLines="6"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/subredditImageItemPostImageView"
+            tools:text="A passenger opened the emergency door of FA passenger opened the emergency door of F" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/bodyItemPostTextView"
+            style="?attr/textAppearanceBody2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="9"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/titleItemPostTextView"
+            tools:text="A passenger opened the emergency door of FA" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imageContent"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bodyItemPostTextView"
+            tools:src="@tools:sample/avatars" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/contentItemPostBarrier"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="bottom"
+            app:constraint_referenced_ids="imageContent,titleItemPostTextView,subredditImageItemPostImageView,bodyItemPostTextView" />
+
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/likeItemPostImageButton"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_marginTop="12dp"
+            android:src="@drawable/arrow_up"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/contentItemPostBarrier" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/likeCountItemPostTextView"
+            style="?attr/textAppearanceBody2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@+id/likeItemPostImageButton"
+            app:layout_constraintStart_toEndOf="@+id/likeItemPostImageButton"
+            app:layout_constraintTop_toTopOf="@+id/likeItemPostImageButton"
+            tools:text="745" />
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/dislikeItemPostImageButton"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:src="@drawable/arrow_down"
+            app:layout_constraintBottom_toBottomOf="@+id/likeCountItemPostTextView"
+            app:layout_constraintStart_toEndOf="@+id/likeCountItemPostTextView"
+            app:layout_constraintTop_toTopOf="@+id/likeCountItemPostTextView" />
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/commentsItemPostImageButton"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_marginStart="42dp"
+            android:src="@drawable/comment"
+            app:layout_constraintBottom_toBottomOf="@+id/dislikeItemPostImageButton"
+            app:layout_constraintStart_toEndOf="@+id/dislikeItemPostImageButton"
+            app:layout_constraintTop_toTopOf="@+id/dislikeItemPostImageButton" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/commentCountItemPostTextView"
+            style="?attr/textAppearanceBody2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            app:layout_constraintBottom_toBottomOf="@+id/commentsItemPostImageButton"
+            app:layout_constraintStart_toEndOf="@+id/commentsItemPostImageButton"
+            app:layout_constraintTop_toTopOf="@+id/commentsItemPostImageButton"
+            tools:text="28" />
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/shareItemPostImageButton"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_marginStart="42dp"
+            android:src="@drawable/share"
+            app:layout_constraintBottom_toBottomOf="@+id/commentCountItemPostTextView"
+            app:layout_constraintStart_toEndOf="@+id/commentCountItemPostTextView"
+            app:layout_constraintTop_toTopOf="@+id/commentCountItemPostTextView" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/shareTitleItemPostTextView"
+            style="?attr/textAppearanceBody2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:text="@string/share"
+            app:layout_constraintBottom_toBottomOf="@+id/shareItemPostImageButton"
+            app:layout_constraintStart_toEndOf="@+id/shareItemPostImageButton"
+            app:layout_constraintTop_toTopOf="@+id/shareItemPostImageButton" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>
